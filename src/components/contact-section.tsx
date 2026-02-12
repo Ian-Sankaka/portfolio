@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
+import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SocialIcons } from "@/components/social-icons";
+
+const CONTACT_EMAILS = ["Iansankaka@icloud.com", "iansankaka@gmail.com"];
 
 export function ContactSection() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -16,6 +20,7 @@ export function ContactSection() {
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement)?.value?.trim();
     const email = (form.elements.namedItem("email") as HTMLInputElement)?.value?.trim();
+    const company = (form.elements.namedItem("company") as HTMLInputElement)?.value?.trim();
     const projectType = (form.elements.namedItem("projectType") as HTMLSelectElement)?.value;
     const budget = (form.elements.namedItem("budget") as HTMLSelectElement)?.value;
     const timeline = (form.elements.namedItem("timeline") as HTMLSelectElement)?.value;
@@ -36,7 +41,22 @@ export function ContactSection() {
       return;
     }
 
-    // Form is valid – wire up to your API or form action here
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const bodyParts = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      company ? `Company: ${company}` : null,
+      `Project type: ${projectType}`,
+      `Budget: ${budget}`,
+      `Timeline: ${timeline}`,
+      "",
+      "Project details:",
+      details,
+    ].filter(Boolean);
+    const body = encodeURIComponent(bodyParts.join("\n"));
+
+    const mailto = `mailto:${CONTACT_EMAILS.join(",")}?subject=${subject}&body=${body}`;
+    window.location.href = mailto;
   };
 
   return (
@@ -227,18 +247,39 @@ export function ContactSection() {
               )}
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-[15px] text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   I&apos;ll respond personally, usually within 1–2 business days.
                 </p>
                 <Button
                   type="submit"
-                  className="mt-1 w-full sm:w-auto px-6"
+                  className="mt-1 w-full sm:w-auto h-10 px-7 text-base group relative overflow-hidden"
+                  size="lg"
                 >
-                  Let&apos;s Connect
+                  <span className="mr-8 transition-opacity duration-500 group-hover:opacity-0">
+                    Let&apos;s Connect
+                  </span>
+                  <i className="absolute right-1 top-1 bottom-1 rounded-sm z-10 grid w-1/4 place-items-center transition-all duration-500 bg-primary-foreground/15 group-hover:w-[calc(100%-0.5rem)] group-active:scale-95 text-black-500">
+                    <Mail size={16} strokeWidth={2} aria-hidden="true" />
+                  </i>
                 </Button>
               </div>
             </form>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mx-auto mt-14 max-w-3xl text-center"
+          >
+            <h3 className="text-lg font-medium text-foreground mb-4">
+              Connect with me
+            </h3>
+            <div className="flex justify-center">
+              <SocialIcons />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -92,7 +92,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-2xl font-semibold hover:text-primary transition-colors"
+              className="text-base font-semibold hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
@@ -104,9 +104,6 @@ export function Header() {
                 <span>Book a discovery call</span>
               </Link>
             </Button>
-          </div>
-          <div className="pt-4">
-            <ThemeToggle />
           </div>
         </div>
       </MobileMenu>

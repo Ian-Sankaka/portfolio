@@ -14,6 +14,8 @@ const projects = [
     tags: ["Ecommerce", "Export", "Frontend"],
     image: "/calyflora-home.png",
     href: "https://www.calyflora.co.ke/",
+    imagePosition: "top" as const,
+    mobileObjectFit: "contain" as const,
   },
   {
     title: "Leah & Gibson",
@@ -23,6 +25,7 @@ const projects = [
     image: "/leahgibson.png",
     href: "https://shop.leahandgibson.com",
     imagePosition: "top" as const,
+    mobileObjectPosition: "40% top" as const,
   },
   {
     title: "Dawit Consult",
@@ -79,10 +82,11 @@ export function WorkSection() {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+        {/* Desktop: original layout */}
+        <div className="hidden md:grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
           {projects.map((project, i) => (
             <motion.div
-              key={project.title}
+              key={`desktop-${project.title}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -97,6 +101,7 @@ export function WorkSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View ${project.title} website`}
+                      className="block size-full"
                     >
                       <Image
                         src={project.image}
@@ -118,6 +123,68 @@ export function WorkSection() {
                 ) : null}
               </div>
               <h3 className="font-semibold text-lg">{project.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {project.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-md bg-muted px-2 py-1 text-xs font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile: optimized layout */}
+        <div className="md:hidden grid gap-8 mb-12">
+          {projects.map((project, i) => (
+            <motion.div
+              key={`mobile-${project.title}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition-all duration-300 overflow-hidden flex flex-col"
+            >
+              <div className="mb-4 w-full overflow-hidden rounded-xl bg-muted/60 aspect-video shrink-0 flex items-center justify-center">
+                {"image" in project && project.image ? (
+                  project.href ? (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.title} website`}
+                      className="block size-full min-h-0"
+                    >
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} website preview`}
+                        width={800}
+                        height={450}
+                        sizes="100vw"
+                        className={`size-full rounded-xl ${"mobileObjectFit" in project && project.mobileObjectFit === "contain" ? "object-contain" : "object-cover"} ${!("mobileObjectPosition" in project) || !project.mobileObjectPosition ? ("imagePosition" in project && project.imagePosition === "top" ? "object-top" : "object-center") : ""}`}
+                        style={("mobileObjectPosition" in project && project.mobileObjectPosition) ? { objectPosition: project.mobileObjectPosition as string } : undefined}
+                      />
+                    </a>
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} website preview`}
+                      width={800}
+                      height={450}
+                      sizes="100vw"
+                      className={`size-full rounded-xl ${"mobileObjectFit" in project && project.mobileObjectFit === "contain" ? "object-contain" : "object-cover"} ${!("mobileObjectPosition" in project) || !project.mobileObjectPosition ? ("imagePosition" in project && project.imagePosition === "top" ? "object-top" : "object-center") : ""}`}
+                      style={("mobileObjectPosition" in project && project.mobileObjectPosition) ? { objectPosition: project.mobileObjectPosition as string } : undefined}
+                    />
+                  )
+                ) : null}
+              </div>
+              <h3 className="font-semibold text-base">{project.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {project.description}
               </p>
