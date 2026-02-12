@@ -8,65 +8,100 @@ const testimonials = [
   {
     tempId: 0,
     testimonial:
-      "Ian took our flower export business online properly. Caly Flora's site now shows our range clearly and our international buyers can place orders without back-and-forth. Very professional.",
-    by: "Catherine Gichungu, Director at Caly Flora",
+      "The project was handled with great professionalism from start to finish. Our vision was clearly understood, communication was smooth, and the final delivery exceeded expectations.",
+    by: "Catherine Gichungu, Managing Director, Caly Flora",
     imgSrc: "https://i.pravatar.cc/150?img=32",
   },
   {
     tempId: 1,
     testimonial:
-      "We wanted a shop that felt like us — good food, easy to order. Ian built exactly that for Leah & Gibson. Enquiries and orders have gone up since we launched.",
-    by: "Catherine Kinyua, CEO at Leah & Gibson",
-    imgSrc: "https://i.pravatar.cc/150?img=47",
+      "From the initial discussions to delivery, the process was well structured and efficient. Attention to detail and problem-solving stood out throughout the engagement.",
+    by: "Ephy Hunja, Chief Operating Officer, Dawit Consult",
+    imgSrc: "https://i.pravatar.cc/150?img=52",
   },
   {
     tempId: 2,
     testimonial:
-      "Mizizi Eco Circle needed a simple way to manage members and tree-planting drives. Ian delivered a platform that our team in Kenya actually enjoys using every day.",
-    by: "James Otieno, Mizizi Eco Circle",
+      "The solution delivered was reliable, user-friendly, and well thought out. It addressed our needs effectively while maintaining a high level of professionalism.",
+    by: "Brian Otieno, Partnerships Manager, DonateX",
     imgSrc: "https://i.pravatar.cc/150?img=33",
   },
   {
     tempId: 3,
     testimonial:
-      "Before Ian, our farm bookings were in WhatsApp and spreadsheets. Now Uncle Bob's Farm has one system for visits and enquiries. It's made a real difference.",
-    by: "Bob Kamau, Uncle Bob's Farm",
-    imgSrc: "https://i.pravatar.cc/150?img=60",
+      "Strong technical expertise and a clear understanding of our requirements were evident throughout the project. Delivery was timely and aligned perfectly with our objectives.",
+    by: "Nicholas Wafula, CEO, KISM",
+    imgSrc: "https://i.pravatar.cc/150?img=11",
   },
   {
     tempId: 4,
     testimonial:
-      "We needed a site that matched the quality of our safari experiences. Ian gave us a fast, clear site that our guests use to explore and book. Highly recommend.",
-    by: "Grace Wambui, Javilla Eagles Safari",
-    imgSrc: "https://i.pravatar.cc/150?img=45",
+      "Our ideas were translated into a functional and visually appealing solution. The balance between design, performance, and usability was handled exceptionally well.",
+    by: "Aisha Mwende, Creative Director, Greenit Decors",
+    imgSrc: "https://i.pravatar.cc/150?img=47",
   },
   {
     tempId: 5,
     testimonial:
-      "At Dawit Consult we run on tight deadlines. Ian delivers on time, communicates well, and our team can plan around him. A reliable partner for any serious project.",
-    by: "Ephy Hunja, COO at Dawit Consult",
-    imgSrc: "https://i.pravatar.cc/150?img=52",
+      "The work aligned seamlessly with our sustainability goals. The approach was thoughtful, efficient, and delivered meaningful impact for our organization.",
+    by: "Samuel Kariuki, Sustainability Programs Lead, Mizizi Eco Circle",
+    imgSrc: "https://i.pravatar.cc/150?img=28",
   },
   {
     tempId: 6,
     testimonial:
-      "We needed a clean, fast site for our legal practice. Ian delivered exactly that. Clients find us easily and our team can update content without hassle.",
-    by: "Wanjiku Mburu, Mburu & Associates",
-    imgSrc: "https://i.pravatar.cc/150?img=22",
+      "The entire process was smooth and well managed. Our brand is now presented more clearly and professionally, and the results met our expectations.",
+    by: "Catherine Kinyua, Head Chef, Leah & Gibson",
+    imgSrc: "https://i.pravatar.cc/150?img=45",
   },
   {
     tempId: 7,
     testimonial:
-      "Our NGO needed a donation page and simple CMS. Ian set it up quickly and trained our staff. The process was smooth from start to finish.",
-    by: "Peter Omondi, Green Future Initiative",
-    imgSrc: "https://i.pravatar.cc/150?img=28",
+      "A practical understanding of our operations was demonstrated, resulting in a solution that supports our daily work and improves efficiency.",
+    by: "Kinyua, Agronomist, Uncle Bob's Farm",
+    imgSrc: "https://i.pravatar.cc/150?img=60",
   },
   {
     tempId: 8,
     testimonial:
-      "From idea to launch, Ian was clear and professional. Our fitness app is live and our users love it. Would work with him again.",
-    by: "Lucy Akinyi, FitKenya",
-    imgSrc: "https://i.pravatar.cc/150?img=68",
+      "The technical implementation was clean, well documented, and reliable. Everything was set up in a way that made ongoing operations straightforward.",
+    by: "Eric, Technical Operations, KISM",
+    imgSrc: "https://i.pravatar.cc/150?img=12",
+  },
+  {
+    tempId: 9,
+    testimonial:
+      "Our brand was well captured and translated into a solution that resonates with our clients. Feedback since launch has been very positive.",
+    by: "Laban Sogomo, CEO, Javilla Eagles Safari",
+    imgSrc: "https://i.pravatar.cc/150?img=15",
+  },
+  {
+    tempId: 10,
+    testimonial:
+      "A strong understanding of fintech requirements was demonstrated, particularly around performance and reliability. The final product met our standards and expectations.",
+    by: "Kevin Kigima, CEO, PokeaPay",
+    imgSrc: "https://i.pravatar.cc/150?img=14",
+  },
+  {
+    tempId: 11,
+    testimonial:
+      "Collaboration was smooth and aligned with our technical standards. Flexibility and the ability to adapt to evolving requirements made the engagement very effective.",
+    by: "Vivian Wagumba, Tech Lead, CITAM",
+    imgSrc: "https://i.pravatar.cc/150?img=22",
+  },
+  {
+    tempId: 13,
+    testimonial:
+      "We needed a clean, fast site for our legal practice. Ian delivered exactly that. Clients find us easily and our team can update content without hassle.",
+    by: "Wameyo Onyango, Wameyo Advocates",
+    imgSrc: "https://i.pravatar.cc/150?img=24",
+  },
+  {
+    tempId: 12,
+    testimonial:
+      "Processes became clearer and more efficient after implementation. The structured approach made collaboration easy and productive.",
+    by: "Diana Daniel, Operations, RFP",
+    imgSrc: "https://i.pravatar.cc/150?img=23",
   },
 ];
 
@@ -134,7 +169,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
         )}
       >
-        - {testimonial.by}
+        <strong>{testimonial.by.split(",")[0].trim()}</strong>
+        {testimonial.by.includes(",") ? ", " + testimonial.by.split(",").slice(1).map((s) => s.trim()).join(", ") : ""}
       </p>
     </div>
   );
