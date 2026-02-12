@@ -36,7 +36,8 @@ const services = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32">
+    <>
+    <section id="home" className="relative overflow-hidden min-h-screen pt-4 md:pt-6 pb-12 md:pb-16 flex flex-col justify-center">
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 -z-10 opacity-[0.02]"
@@ -55,7 +56,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="space-y-3"
           >
-            <p className="text-sm md:text-base font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+            <p className="text-sm md:text-base font-semibold uppercase tracking-[0.35em] text-muted-foreground -mt-14 md:-mt-20">
               Software Developer
             </p>
             <div className="flex items-center justify-center gap-2 text-xs md:text-sm font-medium text-muted-foreground">
@@ -65,15 +66,16 @@ export function Hero() {
               </span>
               <span>Available</span>
             </div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Building digital experiences
-              <span className="block text-primary">that matter</span>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mt-6 md:mt-10">
+              <span className="block">Elevating</span>
+              <span className="block">Businesses</span>
+              <span className="block">Through Digital</span>
+              <span className="block text-primary">Solutions</span>
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
-              I craft high-performance web & mobile applications, robust APIs,
-              and scalable systems. Let&apos;s turn your ideas into reality.
+              I help businesses grow with web & mobile apps, APIs, and systems built to scale. Let&apos;s elevate your next project.
             </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row pt-4">
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row pt-8 md:pt-10">
               <Button size="lg" className="gap-2" asChild>
                 <Link href="#contact">
                   Start a Project
@@ -87,13 +89,29 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Services grid - Start a project */}
+      </div>
+    </section>
+
+    <section id="services" className="relative overflow-hidden pt-12 md:pt-16 pb-20 md:pb-32">
+      <div className="container mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mx-auto max-w-3xl text-center mb-16"
+        >
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Full-stack, end to end
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Web experiences, mobile apps, APIs & backend, and system design — everything you need to ship products that scale.
+          </p>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          id="services"
-          className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-2 items-stretch max-w-5xl mx-auto"
+          className="grid gap-10 sm:grid-cols-2 lg:grid-cols-2 items-stretch max-w-5xl mx-auto"
         >
           {services.map((service, i) => (
             <motion.div
@@ -124,5 +142,6 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
+    </>
   );
 }

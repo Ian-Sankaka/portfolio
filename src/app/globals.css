@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 :root {
   /* Default to light theme */
   --background: #ffffff;
@@ -105,6 +110,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-size: 1.06rem; /* slightly larger base font */
+}
+
+/* Next.js logo: invert only in dark mode (black → white) for visibility */
+[data-theme="dark"] .dark-theme-invert {
+  filter: invert(1);
 }
 
 /* Dropdown arrow slightly left */

@@ -11,8 +11,9 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export const navLinks = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
+  { label: "Tech Stack", href: "#tech-stack" },
   { label: "Work", href: "#work" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Get in touch", href: "#contact" },
@@ -50,7 +51,7 @@ export function Header() {
           Ian Sankaka
         </Link>
 
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-12 ml-8 md:ml-12">
           {navLinks.map((link) => (
             <Link
               key={link.href}
