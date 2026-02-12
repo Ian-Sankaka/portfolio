@@ -226,7 +226,7 @@ export function TestimonialsColumn() {
     <section id="testimonials" className="py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             What clients say
           </h2>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground">

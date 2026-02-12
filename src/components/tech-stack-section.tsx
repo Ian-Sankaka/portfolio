@@ -39,7 +39,7 @@ export function TechStackSection() {
           viewport={{ once: true }}
           className="mx-auto max-w-3xl text-center mb-12"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             Tech Stack: The Secret Sauce
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -63,9 +63,9 @@ export function TechStackSection() {
               whileHover={{ y: -4, scale: 1.01, transition: { duration: 0.2, ease: "easeOut" } }}
               viewport={{ once: true }}
               transition={{ delay: 0.05 * i }}
-              className="group flex flex-col items-center gap-2 p-4 rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm hover:border-primary/30 hover:shadow-xl transition-all duration-300 cursor-default"
+              className={`group flex flex-col items-center gap-1.5 sm:gap-2 p-2 sm:p-4 rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm hover:border-primary/30 hover:shadow-xl transition-all duration-300 cursor-default ${i === 12 ? "col-start-2 sm:col-start-auto" : ""} ${i === 13 ? "col-start-3 sm:col-start-auto" : ""}`}
             >
-              <div className="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-0.5 group-hover:rotate-2">
+              <div className="relative w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-0.5 group-hover:rotate-2 aspect-square">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={"customSrc" in tech && tech.customSrc ? tech.customSrc : `https://cdn.simpleicons.org/${tech.slug}/${tech.color}`}
@@ -75,7 +75,7 @@ export function TechStackSection() {
                   className={`w-full h-full object-contain ${"invertInDarkMode" in tech && tech.invertInDarkMode ? "dark-theme-invert" : ""}`}
                 />
               </div>
-              <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+              <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                 {tech.name}
               </span>
             </motion.div>

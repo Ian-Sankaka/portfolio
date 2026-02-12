@@ -68,7 +68,7 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             Let&apos;s work together
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">

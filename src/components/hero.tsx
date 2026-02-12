@@ -100,7 +100,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mx-auto max-w-3xl text-center mb-16"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             Full-stack, end to end
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
