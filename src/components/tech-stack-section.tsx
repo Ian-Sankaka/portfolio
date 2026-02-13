@@ -15,9 +15,9 @@ const techStack = [
   { name: "Svelte", slug: "svelte", color: "FF3E00" },
   { name: "WordPress", slug: "wordpress", color: "21759B" },
   { name: "MySQL", customSrc: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", slug: "mysql", color: "4479A1" },
-  { name: "Tailwind CSS", slug: "tailwindcss", color: "06B6D4" },
+  { name: "Tailwind", slug: "tailwindcss", color: "06B6D4" },
   { name: "Node.js", slug: "nodedotjs", color: "339933" },
-  { name: "PostgreSQL", slug: "postgresql", color: "4169E1" },
+  { name: "Docker", slug: "docker", color: "2496ED" },
 ];
 
 export function TechStackSection() {
@@ -65,7 +65,7 @@ export function TechStackSection() {
               transition={{ delay: 0.05 * i }}
               className={`group flex flex-col items-center gap-1.5 sm:gap-2 p-2 sm:p-4 rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm hover:border-primary/30 hover:shadow-xl transition-all duration-300 cursor-default ${i === 12 ? "col-start-2 sm:col-start-auto" : ""} ${i === 13 ? "col-start-3 sm:col-start-auto" : ""}`}
             >
-              <div className="relative w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-0.5 group-hover:rotate-2 aspect-square">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-0.5 group-hover:rotate-2 aspect-square">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={"customSrc" in tech && tech.customSrc ? tech.customSrc : `https://cdn.simpleicons.org/${tech.slug}/${tech.color}`}
@@ -75,7 +75,7 @@ export function TechStackSection() {
                   className={`w-full h-full object-contain ${"invertInDarkMode" in tech && tech.invertInDarkMode ? "dark-theme-invert" : ""}`}
                 />
               </div>
-              <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+              <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">
                 {tech.name}
               </span>
             </motion.div>
