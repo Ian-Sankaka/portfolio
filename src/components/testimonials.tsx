@@ -119,6 +119,15 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   cardSize,
 }) => {
   const isCenter = position === 0;
+  const name = testimonial.by.split(",")[0].trim();
+  const restOfBy = testimonial.by.includes(",")
+    ? ", " +
+      testimonial.by
+        .split(",")
+        .slice(1)
+        .map((s) => s.trim())
+        .join(", ")
+    : "";
 
   return (
     <div
@@ -147,14 +156,23 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           : "0px 0px 0px 0px transparent",
       }}
     >
-      <img
-        src={testimonial.imgSrc}
-        alt={`${testimonial.by.split(",")[0]}`}
-        className="mb-4 h-14 w-12 bg-muted object-cover object-top"
-        style={{
-          boxShadow: "3px 3px 0px hsl(var(--background))",
-        }}
-      />
+      <div
+        aria-hidden="true"
+        className="mb-4 flex gap-1 text-yellow-400"
+      >
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span
+            key={i}
+            className={cn(
+              "text-sm",
+              isCenter &&
+                "scale-110 drop-shadow-[0_0_8px_rgba(250,204,21,0.7)]"
+            )}
+          >
+            ★
+          </span>
+        ))}
+      </div>
       <h3
         className={cn(
           "text-sm sm:text-base font-medium",
@@ -169,8 +187,15 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground/80" : "text-muted-foreground"
         )}
       >
-        <strong>{testimonial.by.split(",")[0].trim()}</strong>
-        {testimonial.by.includes(",") ? ", " + testimonial.by.split(",").slice(1).map((s) => s.trim()).join(", ") : ""}
+        <strong
+          className={cn(
+            "font-semibold",
+            isCenter && "text-sky-400"
+          )}
+        >
+          {name}
+        </strong>
+        {restOfBy}
       </p>
     </div>
   );
