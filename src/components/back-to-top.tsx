@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 export function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -16,7 +17,7 @@ export function BackToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    smoothScrollTo(0);
   };
 
   if (!visible) return null;

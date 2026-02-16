@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 export const navLinks = [
   { label: "Home", href: "#home" },
@@ -56,6 +57,13 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => {
+                if (link.href.startsWith("#")) {
+                  e.preventDefault();
+                  const el = document.getElementById(link.href.slice(1));
+                  if (el) smoothScrollTo(el);
+                }
+              }}
               className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.label}
@@ -66,7 +74,15 @@ export function Header() {
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
           <Button size="default" className="px-5 py-2.5 text-sm md:text-base" asChild>
-            <Link href="#contact" className="flex items-center gap-2">
+            <Link
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("contact");
+                if (el) smoothScrollTo(el);
+              }}
+              className="flex items-center gap-2"
+            >
               <CalendarDays className="h-4 w-4 md:h-5 md:w-5" />
               <span>Book a discovery call</span>
             </Link>
@@ -92,7 +108,14 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                if (link.href.startsWith("#")) {
+                  e.preventDefault();
+                  const el = document.getElementById(link.href.slice(1));
+                  if (el) smoothScrollTo(el);
+                }
+                setOpen(false);
+              }}
               className="text-base font-semibold hover:text-primary transition-colors"
             >
               {link.label}
@@ -100,7 +123,16 @@ export function Header() {
           ))}
           <div className="flex flex-col gap-3 pt-4">
             <Button asChild>
-              <Link href="#contact" onClick={() => setOpen(false)} className="flex items-center gap-2">
+              <Link
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("contact");
+                  if (el) smoothScrollTo(el);
+                  setOpen(false);
+                }}
+                className="flex items-center gap-2"
+              >
                 <CalendarDays className="h-4 w-4" />
                 <span>Book a discovery call</span>
               </Link>
