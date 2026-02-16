@@ -164,9 +164,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           <span
             key={i}
             className={cn(
-              "text-sm",
-              isCenter &&
-                "scale-110 drop-shadow-[0_0_8px_rgba(250,204,21,0.7)]"
+              "text-sm transition-all duration-300",
+              isCenter
+                ? "opacity-100 scale-110 drop-shadow-[0_0_8px_rgba(250,204,21,0.7)]"
+                : "opacity-60"
             )}
           >
             ★
