@@ -35,7 +35,7 @@ const socials = [
   },
   {
     name: "GitHub",
-    href: "https://github.com/Ian-Sankaka",
+    href: "#",
     brandColor: "#6e5494",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="size-[18px]">
