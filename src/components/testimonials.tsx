@@ -23,7 +23,7 @@ const testimonials = [
     tempId: 2,
     testimonial:
       "The solution delivered was reliable, user-friendly, and well thought out. It addressed our needs effectively while maintaining a high level of professionalism.",
-    by: "Brian Otieno, Partnerships Manager, DonateX",
+    by: "Brian Otieno, Partnerships Manager, Jamii Aid",
     imgSrc: "https://i.pravatar.cc/150?img=33",
   },
   {
@@ -102,6 +102,13 @@ const testimonials = [
       "Processes became clearer and more efficient after implementation. The structured approach made collaboration easy and productive.",
     by: "Diana Daniel, Operations, RFP",
     imgSrc: "https://i.pravatar.cc/150?img=23",
+  },
+  {
+    tempId: 14,
+    testimonial:
+      "The website perfectly captures our brand's elegance and makes it easy for customers to discover and order our premium chocolates. The shopping experience is smooth, and we've seen great engagement since launch.",
+    by: "Valentino Wanjiku, Today Chocolate",
+    imgSrc: "https://i.pravatar.cc/150?img=35",
   },
 ];
 

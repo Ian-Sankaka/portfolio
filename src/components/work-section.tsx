@@ -37,11 +37,12 @@ const projects = [
     imagePosition: "top" as const,
   },
   {
-    title: "DonateX",
+    title: "Jamii Aid",
     description:
-      "Donation and fundraising platform where users create and run campaigns, complete KYC verification, and receive real-time updates. Payment integration (Cybersource, M-Pesa) for secure giving and receiving of funds. Next.js and Supabase with an admin dashboard for reviewing campaigns and users.",
+      "Comprehensive donation and fundraising platform built for Kenya, enabling secure campaigns with KYC verification, M-Pesa-powered donations, and transparent impact tracking. Donors can browse causes, give confidently, and follow progress; campaign owners self-onboard and manage everything from one dashboard.",
     tags: ["Next.js", "Supabase", "Payments"],
     image: "/donatex.png",
+    href: "https://jamii-aid.vercel.app/",
     imagePosition: "top" as const,
   },
   {
@@ -60,6 +61,24 @@ const projects = [
     tags: ["Education", "Eco", "Web"],
     image: "/mizizi.png",
     href: "https://mizizi.greenitdecors.co.ke/",
+    imagePosition: "top" as const,
+  },
+  {
+    title: "Today Chocolate",
+    description:
+      "Premium chocolate brand offering artisanal confections and gift collections. The platform showcases their product range, enables seamless online ordering, and provides an elegant shopping experience for chocolate enthusiasts seeking quality and craftsmanship.",
+    tags: ["Ecommerce", "Confectionery", "Shop"],
+    image: "/today.png",
+    href: "https://todaychocolate.co.ke",
+    imagePosition: "top" as const,
+  },
+  {
+    title: "Housewife's Paradise",
+    description:
+      "Leading home appliances and electronics retailer in Kenya, offering a comprehensive range of TVs, refrigerators, washing machines, microwaves, and small domestic appliances from top brands like Samsung and LG. The platform provides an intuitive shopping experience with detailed product information, special offers, and convenient checkout options.",
+    tags: ["Ecommerce", "Electronics", "Retail"],
+    image: "/housewife.png",
+    href: "https://housewifesparadise.com",
     imagePosition: "top" as const,
   },
 ];
@@ -87,11 +106,11 @@ export function WorkSection() {
           {projects.map((project, i) => (
             <motion.div
               key={`desktop-${project.title}`}
+              className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_25px_rgba(148,163,184,0.35)] dark:hover:shadow-[0_0_25px_rgba(148,163,184,0.2)]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_25px_rgba(148,163,184,0.35)] dark:hover:shadow-[0_0_25px_rgba(148,163,184,0.2)]"
             >
               <div className="mb-4 h-52 w-full overflow-hidden rounded-xl bg-muted/60">
                 {"image" in project && project.image ? (
