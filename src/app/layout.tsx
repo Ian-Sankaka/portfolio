@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Ian Sankaka is a full-stack software developer specializing in high-performance web applications, secure server infrastructure, API development, and scalable bespoke systems for businesses and organizations.",
   verification: {
-    google: "googlefd48b5ffe5f0f6cf",
+    google: "-jz9RX_V7M5VyPcK00JRTdXbiynhRHjzafOjc8Mt6sY",
   },
 };
 
