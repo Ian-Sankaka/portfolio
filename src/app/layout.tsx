@@ -13,7 +13,10 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Ian | Software Developer",
   description:
-    "Software developer crafting web & mobile applications, APIs, and scalable systems.",
+    "Ian Sankaka is a full-stack software developer specialized in high-performance web applications, secure server infrastructure, API development, and scalable bespoke systems for businesses and organizations.",
+  verification: {
+    google: "kgkOwJpMl4zBo4hoPHTBSwv5htb8FcHor41kZJ8EVnA",
+  },
 };
 
 export default function RootLayout({
