@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
+const CAL_BOOKING_URL = "https://cal.com/iansankaka/discovery-call";
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
@@ -75,12 +77,9 @@ export function Header() {
           <ThemeToggle />
           <Button size="default" className="px-5 py-2.5 text-sm md:text-base" asChild>
             <Link
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("contact");
-                if (el) smoothScrollTo(el);
-              }}
+              href={CAL_BOOKING_URL}
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-2"
             >
               <CalendarDays className="h-4 w-4 md:h-5 md:w-5" />
@@ -124,13 +123,10 @@ export function Header() {
           <div className="flex flex-col gap-3 pt-4">
             <Button asChild>
               <Link
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const el = document.getElementById("contact");
-                  if (el) smoothScrollTo(el);
-                  setOpen(false);
-                }}
+                href={CAL_BOOKING_URL}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
                 className="flex items-center gap-2"
               >
                 <CalendarDays className="h-4 w-4" />
