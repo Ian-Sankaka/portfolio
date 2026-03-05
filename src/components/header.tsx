@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
-const CAL_BOOKING_URL = "https://cal.com/iansankaka/discovery-call";
+const CAL_BOOKING_URL = "https://cal.com/iansankaka";
 
 export const navLinks = [
   { label: "Home", href: "#home" },
