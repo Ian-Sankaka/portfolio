@@ -73,6 +73,15 @@ const projects = [
     imagePosition: "top" as const,
   },
   {
+    title: "Uncle Bob's Farm",
+    description:
+      "The Inn at Uncle Bob's in Nanyuki: a ranch retreat for stays, dining, wellness, and events. The site highlights rooms and cottages, booking, farm-to-table experiences, outdoor activities, and community offerings—rustic charm with modern comfort for guests planning a getaway.",
+    tags: ["Hospitality", "Booking", "Web"],
+    image: "/unclebobs.jpg",
+    href: "https://unclebobsny.com/",
+    imagePosition: "top" as const,
+  },
+  {
     title: "Housewife's Paradise",
     description:
       "Leading home appliances and electronics retailer in Kenya, offering a comprehensive range of TVs, refrigerators, washing machines, microwaves, and small domestic appliances from top brands like Samsung and LG. The platform provides an intuitive shopping experience with detailed product information, special offers, and convenient checkout options.",
