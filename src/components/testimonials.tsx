@@ -187,7 +187,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           isCenter ? "text-primary-foreground" : "text-foreground"
         )}
       >
-        "{testimonial.testimonial}"
+        &quot;{testimonial.testimonial}&quot;
       </h3>
       <p
         className={cn(
@@ -299,7 +299,7 @@ export function TestimonialsColumn() {
             What clients say
           </h2>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground">
-            A rotating stack of testimonials from teams I've helped ship
+            A rotating stack of testimonials from teams I&apos;ve helped ship
             and scale products with.
           </p>
         </div>

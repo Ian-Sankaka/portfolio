@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, Code2, Smartphone, Database, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { GlowCard } from "@/components/glow-card";
 
 const services = [
