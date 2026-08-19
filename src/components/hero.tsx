@@ -66,10 +66,8 @@ export function Hero() {
               <span>Available</span>
             </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mt-6 md:mt-10">
-              <span className="block">Elevating</span>
-              <span className="block">Businesses</span>
-              <span className="block">Through Digital</span>
-              <span className="block text-primary">Solutions</span>
+              <span className="block">Elevating Businesses</span>
+              <span className="block text-primary">Through Digital Solutions</span>
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
               I help businesses grow with web & mobile apps, APIs, and systems built to scale. Let&apos;s elevate your next project.

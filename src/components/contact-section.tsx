@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SocialIcons } from "@/components/social-icons";
 
-const CONTACT_EMAILS = ["Iansankaka@icloud.com", "iansankaka@gmail.com"];
+const WHATSAPP_NUMBER = "254113065305";
 
 export function ContactSection() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
+  const [showCustomBudget, setShowCustomBudget] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +23,7 @@ export function ContactSection() {
     const company = (form.elements.namedItem("company") as HTMLInputElement)?.value?.trim();
     const projectType = (form.elements.namedItem("projectType") as HTMLSelectElement)?.value;
     const budget = (form.elements.namedItem("budget") as HTMLSelectElement)?.value;
+    const customBudget = (form.elements.namedItem("customBudget") as HTMLInputElement)?.value?.trim();
     const timeline = (form.elements.namedItem("timeline") as HTMLSelectElement)?.value;
     const details = (form.elements.namedItem("details") as HTMLTextAreaElement)?.value?.trim();
 
@@ -31,6 +32,7 @@ export function ContactSection() {
     if (!email) errors.email = true;
     if (!projectType) errors.projectType = true;
     if (!budget) errors.budget = true;
+    if (budget === "custom" && !customBudget) errors.customBudget = true;
     if (!timeline) errors.timeline = true;
     if (!details) errors.details = true;
 
@@ -41,22 +43,22 @@ export function ContactSection() {
       return;
     }
 
-    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
-    const bodyParts = [
+    const messageParts = [
+      `New project inquiry from ${name}`,
+      "",
       `Name: ${name}`,
       `Email: ${email}`,
       company ? `Company: ${company}` : null,
       `Project type: ${projectType}`,
-      `Budget: ${budget}`,
+      `Budget: ${budget === "custom" ? `Custom: $${customBudget}` : budget}`,
       `Timeline: ${timeline}`,
       "",
       "Project details:",
       details,
     ].filter(Boolean);
-    const body = encodeURIComponent(bodyParts.join("\n"));
+    const text = encodeURIComponent(messageParts.join("\n"));
 
-    const mailto = `mailto:${CONTACT_EMAILS.join(",")}?subject=${subject}&body=${body}`;
-    window.location.href = mailto;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   };
 
   return (
@@ -180,15 +182,17 @@ export function ContactSection() {
                   <select
                     id="budget"
                     name="budget"
+                    onChange={(e) => setShowCustomBudget(e.target.value === "custom")}
                     className={`mt-2 h-[2.875rem] w-full rounded-lg border px-3 text-[15px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-background select-arrow-left ${fieldErrors.budget ? "border-destructive" : "border-input"}`}
                     defaultValue=""
                   >
                     <option value="" disabled>
                       Select a range
                     </option>
-                    <option value="500-1k">$500 – $1,000</option>
-                    <option value="1k-1.5k">$1,000 – $1,500</option>
-                    <option value="1.5k-2k">$1,500 – $2,000</option>
+                    <option value="700-1.5k">$700 – $1,500</option>
+                    <option value="1.5k-2.5k">$1,500 – $2,500</option>
+                    <option value="2.5k-4k">$2,500 – $4,000</option>
+                    <option value="custom">Custom amount</option>
                   </select>
                   {fieldErrors.budget && (
                     <p className="mt-1 text-sm text-destructive">Required</p>
@@ -221,6 +225,28 @@ export function ContactSection() {
                 </div>
               </div>
 
+              {showCustomBudget && (
+                <div className="text-left">
+                  <label
+                    htmlFor="customBudget"
+                    className="text-[15px] md:text-[15px] font-medium text-foreground"
+                  >
+                    Custom budget (USD)
+                  </label>
+                  <input
+                    id="customBudget"
+                    name="customBudget"
+                    type="number"
+                    min="1"
+                    placeholder="Enter your budget amount"
+                    className={`mt-2 h-[2.875rem] w-full rounded-lg border px-3 text-[15px] outline-none focus-visible:ring-2 focus-visible:ring-ring bg-background ${fieldErrors.customBudget ? "border-destructive" : "border-input"}`}
+                  />
+                  {fieldErrors.customBudget && (
+                    <p className="mt-1 text-sm text-destructive">Required</p>
+                  )}
+                </div>
+              )}
+
               <div className="text-left">
                 <label
                   htmlFor="details"
@@ -252,14 +278,21 @@ export function ContactSection() {
                 </p>
                 <Button
                   type="submit"
-                  className="mt-1 w-full sm:w-auto h-10 px-7 text-base group relative overflow-hidden"
+                  className="mt-1 w-full sm:w-auto h-10 px-7 text-base group relative overflow-hidden hover:bg-[#25D366] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)]"
                   size="lg"
                 >
                   <span className="mr-8 transition-opacity duration-500 group-hover:opacity-0">
                     Let&apos;s Connect
                   </span>
-                  <i className="absolute right-1 top-1 bottom-1 rounded-sm z-10 grid w-1/4 place-items-center transition-all duration-500 bg-primary-foreground/15 group-hover:w-[calc(100%-0.5rem)] group-active:scale-95 text-black-500">
-                    <Mail size={16} strokeWidth={2} aria-hidden="true" />
+                  <i className="absolute right-1 top-1 bottom-1 rounded-sm z-10 grid w-1/4 place-items-center transition-all duration-500 bg-primary-foreground/15 group-hover:w-[calc(100%-0.5rem)] group-active:scale-95 text-black-500 group-hover:text-white">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-4"
+                      aria-hidden="true"
+                    >
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
                   </i>
                 </Button>
               </div>

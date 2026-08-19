@@ -8,6 +8,24 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    title: "Housewife's Paradise",
+    description:
+      "Leading home appliances and electronics retailer in Kenya, offering a comprehensive range of TVs, refrigerators, washing machines, microwaves, and small domestic appliances from top brands like Samsung and LG. The platform provides an intuitive shopping experience with detailed product information, special offers, and convenient checkout options.",
+    tags: ["Ecommerce", "Electronics", "Retail"],
+    image: "/housewife.png",
+    href: "https://housewifesparadise.com",
+    imagePosition: "top" as const,
+  },
+  {
+    title: "Dawit Consult",
+    description:
+      "Strategic advisory firm providing tailored business and professional consulting to organisations and entrepreneurs. Structured solutions for operational efficiency and sustainable growth. The site establishes credibility, outlines services, and guides client engagement.",
+    tags: ["Consulting", "Operations", "Web"],
+    image: "/dawit.png",
+    href: "https://dawitconsult.com/",
+    imagePosition: "top" as const,
+  },
+  {
     title: "Caly Flora",
     description:
       "Kenyan flower export company specialising in high-quality cut flowers for international markets. Sustainable sourcing, quality control, and cold-chain logistics for global freshness. The site showcases their product range, export capabilities, and excellence in floriculture.",
@@ -22,19 +40,10 @@ const projects = [
     description:
       "Nairobi-based culinary brand offering artisanal meals, pastries, and full-service catering for private and corporate events. Premium ingredients and curated dining with seamless online ordering. Customers browse menus, place orders, and book catering in one place.",
     tags: ["Ecommerce", "Food", "Shop"],
-    image: "/leahgibson.png",
-    href: "https://shop.leahandgibson.com",
+    image: "/L&G.jpeg",
+    href: "https://leahandgibson.com/",
     imagePosition: "top" as const,
     mobileObjectPosition: "40% top" as const,
-  },
-  {
-    title: "Dawit Consult",
-    description:
-      "Strategic advisory firm providing tailored business and professional consulting to organisations and entrepreneurs. Structured solutions for operational efficiency and sustainable growth. The site establishes credibility, outlines services, and guides client engagement.",
-    tags: ["Consulting", "Operations", "Web"],
-    image: "/dawit.png",
-    href: "https://dawitconsult.com/",
-    imagePosition: "top" as const,
   },
   {
     title: "Jamii Aid",
@@ -55,6 +64,24 @@ const projects = [
     imagePosition: "top" as const,
   },
   {
+    title: "GreenLife Shop",
+    description:
+      "GreenLife Shop is an e-commerce platform for sustainable and eco-friendly products, featuring a clean catalogue, smooth product browsing, and a straightforward online shopping experience for everyday green living. The store curates plant and garden essentials with clear categories and a simple checkout for conscious shopping.",
+    tags: ["Ecommerce", "Eco", "Shop"],
+    image: "/greenlife.jpeg",
+    href: "https://greenlifeshop.intrepidprojects.co.ke/",
+    imagePosition: "top" as const,
+  },
+  {
+    title: "Today Chocolate",
+    description:
+      "Premium chocolate brand offering artisanal confections and gift collections. The platform showcases their product range, enables seamless online ordering, and provides an elegant shopping experience for chocolate enthusiasts seeking quality and craftsmanship. Every bar and gift box is crafted to deliver a rich, memorable treat.",
+    tags: ["Ecommerce", "Confectionery", "Shop"],
+    image: "/today.png",
+    href: "https://todaychocolate.co.ke",
+    imagePosition: "top" as const,
+  },
+  {
     title: "Mizizi Eco Circle",
     description:
       "Initiative under Greenit Decors empowering children and youth with environmental knowledge and practical nature experiences. Playful activities, gardening, nature lessons, and the “Green Journal” program foster future green champions. The platform promotes interactive learning that connects young minds with nature and conservation.",
@@ -64,30 +91,12 @@ const projects = [
     imagePosition: "top" as const,
   },
   {
-    title: "Today Chocolate",
-    description:
-      "Premium chocolate brand offering artisanal confections and gift collections. The platform showcases their product range, enables seamless online ordering, and provides an elegant shopping experience for chocolate enthusiasts seeking quality and craftsmanship.",
-    tags: ["Ecommerce", "Confectionery", "Shop"],
-    image: "/today.png",
-    href: "https://todaychocolate.co.ke",
-    imagePosition: "top" as const,
-  },
-  {
     title: "Uncle Bob's Farm",
     description:
       "The Inn at Uncle Bob's in Nanyuki: a ranch retreat for stays, dining, wellness, and events. The site highlights rooms and cottages, booking, farm-to-table experiences, outdoor activities, and community offerings—rustic charm with modern comfort for guests planning a getaway.",
     tags: ["Hospitality", "Booking", "Web"],
     image: "/unclebobs.jpg",
     href: "https://unclebobsny.com/",
-    imagePosition: "top" as const,
-  },
-  {
-    title: "Housewife's Paradise",
-    description:
-      "Leading home appliances and electronics retailer in Kenya, offering a comprehensive range of TVs, refrigerators, washing machines, microwaves, and small domestic appliances from top brands like Samsung and LG. The platform provides an intuitive shopping experience with detailed product information, special offers, and convenient checkout options.",
-    tags: ["Ecommerce", "Electronics", "Retail"],
-    image: "/housewife.png",
-    href: "https://housewifesparadise.com",
     imagePosition: "top" as const,
   },
 ];
@@ -115,7 +124,9 @@ export function WorkSection() {
           {projects.map((project, i) => (
             <motion.div
               key={`desktop-${project.title}`}
-              className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_25px_rgba(148,163,184,0.35)] dark:hover:shadow-[0_0_25px_rgba(148,163,184,0.2)]"
+              className={`rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_25px_rgba(148,163,184,0.35)] dark:hover:shadow-[0_0_25px_rgba(148,163,184,0.2)] ${
+                i === projects.length - 1 ? "lg:col-start-2" : ""
+              }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
