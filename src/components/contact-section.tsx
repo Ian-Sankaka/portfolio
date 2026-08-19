@@ -44,7 +44,7 @@ export function ContactSection() {
     }
 
     const messageParts = [
-      `New project inquiry from ${name}`,
+      `Hi Ian, I'd like to discuss a project.`,
       "",
       `Name: ${name}`,
       `Email: ${email}`,
@@ -56,7 +56,7 @@ export function ContactSection() {
       "Project details:",
       details,
     ].filter(Boolean);
-    const text = encodeURIComponent(messageParts.join("\n"));
+    const text = encodeURIComponent(messageParts.join("\r\n"));
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   };
